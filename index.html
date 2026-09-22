@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f3f0e8" />
+  <title>Weatherline | Live Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Weatherline home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>WEATHERLINE</span>
+      </a>
+      <div class="live-status"><span class="status-dot"></span><span>LIVE DATA</span></div>
+    </header>
+
+    <main>
+      <section class="hero-grid">
+        <div class="intro">
+          <p class="eyebrow">LOCAL CONDITIONS / <span id="updatedAt">READY TO CHECK</span></p>
+          <h1>Know the<br /><em>weather</em> ahead.</h1>
+          <p class="intro-copy">A clear read on the sky above you, with the next seven days in view.</p>
+        </div>
+        <form class="search-panel" id="searchForm">
+          <label for="cityInput">Search a place</label>
+          <div class="search-row">
+            <input id="cityInput" name="city" type="search" placeholder="Try Tokyo, Lagos, or Paris" autocomplete="off" required />
+            <button type="submit" aria-label="Search weather"><span aria-hidden="true">&#8599;</span></button>
+          </div>
+          <button class="location-button" id="locationButton" type="button"><span aria-hidden="true">&#8853;</span> USE MY LOCATION</button>
+        </form>
+      </section>
+
+      <div class="notice" id="notice" role="status" aria-live="polite" hidden></div>
+
+      <section class="weather-layout" id="weatherContent" aria-live="polite">
+        <article class="current-card">
+          <div class="card-topline"><span id="currentDate">TODAY</span><span class="weather-symbol" id="currentSymbol">☀</span></div>
+          <div class="place-line"><div><h2 id="placeName">Loading location</h2><p id="placeRegion">Finding the latest reading</p></div><span class="local-time" id="localTime">--:--</span></div>
+          <div class="temperature"><span id="temperature">--</span><sup>°</sup><span class="celsius">C</span></div>
+          <p class="condition" id="condition">Fetching current conditions</p>
+          <div class="current-details">
+            <div><span>FEELS LIKE</span><strong id="feelsLike">--°</strong></div>
+            <div><span>HUMIDITY</span><strong id="humidity">--%</strong></div>
+            <div><span>WIND</span><strong id="wind">-- km/h</strong></div>
+          </div>
+        </article>
+
+        <aside class="forecast-panel">
+          <div class="section-heading"><h2>Seven day outlook</h2><span id="forecastRange">--</span></div>
+          <div class="forecast-list" id="forecastList"></div>
+        </aside>
+      </section>
+
+      <section class="metric-strip">
+        <div class="metric"><span class="metric-icon">↑</span><div><span>UV INDEX</span><strong id="uvIndex">--</strong></div></div>
+        <div class="metric"><span class="metric-icon">↗</span><div><span>PRECIPITATION</span><strong id="precipitation">--%</strong></div></div>
+        <div class="metric"><span class="metric-icon">◐</span><div><span>SUNRISE / SUNSET</span><strong id="sunTimes">--:-- / --:--</strong></div></div>
+        <div class="metric source"><span>POWERED BY</span><strong>OPEN-METEO</strong></div>
+      </section>
+    </main>
+    <footer><span>WEATHERLINE / A SMALL WINDOW INTO THE SKY</span><span id="coordinates">--</span></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
